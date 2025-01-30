@@ -2,10 +2,14 @@ from fastapi import FastAPI
 import pandas as pd
 from typing import Dict, List
 
-# Update with the correct file path
-file_path = "D:/fastapi work/3/UrduTranslationsFatehMuhammadAndShaikhulHind.xlsx"
-df = pd.read_excel(file_path)
+import os
 
+# File ka dynamic path
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+file_path = os.path.join(BASE_DIR, "UrduTranslationsFatehMuhammadAndShaikhulHind.xlsx")
+
+# Read Excel file
+df = pd.read_excel(file_path)
 # Initialize FastAPI app
 app = FastAPI()
 
